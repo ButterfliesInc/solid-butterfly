@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@inrupt/solid-ui-react": "^2.9.0",
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
@@ -17,8 +18,14 @@
     "eslint-config-next": "13.4.19",
     "next": "13.4.19",
     "postcss": "8.4.29",
+    "rdf-namespaces": "^1.12.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.47.0",
+    "react-redux": "^8.1.2",
+    "solid-logic": "^3.0.3",
+    "soukai": "^0.5.1",
+    "soukai-solid": "^0.5.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
   }

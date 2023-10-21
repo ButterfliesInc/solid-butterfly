@@ -1,0 +1,56 @@
+name: Deploy Project
+on: 
+  pull_request:
+    types:  
+      - opened
+  workflow_dispatch:
+  push:
+    branches: 
+      - main
+      - 'dev-*'
+      - 'feat/**'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm   # npm does this for us.... saves the cache to this directory.
+          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Print goodby
+        run: |
+          echo "done bye"
+          echo "Have a great day!"
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm   # npm does this for us.... saves the cache to this directory.
+          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Project
+        run: npm run build?
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files # name is up to me
+          path: dist # this is the build for his... mine will be different 
+      - name: Get Build Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-files
+      - name: OUtput Contents
+        run: ls
+      - name: Deploy
+        run: echo "deploying...."

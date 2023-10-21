@@ -1,0 +1,12 @@
+.button {
+  font: inherit;
+  padding: 0.25rem 1rem;
+  cursor: pointer;
+  background-color: inherit;
+  width: 6rem;
+  height: 2.5rem;
+}
+
+.button:focus {
+  outline: none;
+}

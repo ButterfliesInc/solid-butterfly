@@ -1,0 +1,11 @@
+import Section from '../UI/Section';
+import PhoneDetails from './phoneDetails'
+// phone: PhoneNumber[] need to be able to show multiple and add...
+
+const PhoneNumbers = (props: any) => {
+    return (
+        <PhoneDetails />
+    )
+}
+
+export default PhoneNumbers;
