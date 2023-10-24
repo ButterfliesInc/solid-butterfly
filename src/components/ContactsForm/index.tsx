@@ -17,7 +17,13 @@ interface ContactsFormProps {
   contactType: ContactType */
 
 const ContactsForm = (props: any) => {
-  const { register, handleSubmit, watch, formState: { errors }} = useForm();
+  const { register, handleSubmit, watch, formState: { errors }} = useForm({
+    defaultValues: {
+      firstName: props.firstName,
+      lastName: props.lastName,
+      phoneNumber: props.phoneNumber
+    }
+  });
   const onSubmit = (data: any) => console.log(data)
     return (
       <FormContainer icon='person' name='Contact' navItems={null} backgroundColor='background-aqua-lt'>

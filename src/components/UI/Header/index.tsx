@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Header.module.css';
+import NavBar from './NavBar'
 
 // should also have a delete, so remove the container
 // to readd you would do it from the main header
@@ -12,7 +13,8 @@ const Header = (props) => {
                 <i className={`material-icons ${styles.icon__identifier}`} >{props.icon}</i>
             </div>
             <h2>{props.name}</h2>
-            <i className={`material-icons ${styles.icon__menu}`} onClick={()=> alert('I have been clicked')}>menu</i>
+            <i className={`material-icons ${styles.icon__menu}`} onClick={()=> alert('display Nav')}>menu</i>
+            <NavBar navItems={props.navItems} />
         </header>
     )
 }

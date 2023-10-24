@@ -1,6 +1,7 @@
 import Container from '../../components/UI/Container';
 import Card from '../../components/UI/Card';
 
+const contactNavItems = [ 'Create New Contact', 'Import Contacts', 'Export Contacts', 'Group View', 'Organization View']
 const onDragHandler = () => {
 
 }
@@ -42,9 +43,9 @@ const individuals = [
         id: 4,
         name: 'Sophia'
     }];
-const Individuals = () => {
+const ContactsView = () => {
     return (
-        <Container icon='person' name='Individuals' navItems={null} backgroundColor='background-aqua-lt'>
+        <Container icon='person' name='Contacts' navItems={contactNavItems} backgroundColor='background-aqua-lt'>
             <ul>
                 {individuals.map(individual => {
                     return (
@@ -57,4 +58,4 @@ const Individuals = () => {
         </Container>)
 }
 
-export default Individuals;
+export default ContactsView;
